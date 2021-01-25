@@ -13,6 +13,7 @@ $(document).ready(function () {
     });
 
 
+    //Correction of item 1
     $('#standard, #premium, #excelium').on('click', function () {
         doCalc();
         document.getElementById('elevPriceUnit').value = (prodRange.price).toFixed(2) + " $";        
@@ -93,6 +94,7 @@ $(document).ready(function () {
     };
 
     function emptyElevatorsNumberAndPricesFields() {
+        $('#numElev_2').val(''); //Correction of item 2
         $('#numElev_3').val('');
         $('.priceField').val('');
     };
@@ -113,6 +115,12 @@ $(document).ready(function () {
 
             alert("Please enter a positive number!");
             $('#numApp').val('');
+            return true
+
+        }else if ($('#numFloors').val() < 0) { //Correction of item 3
+
+            alert("Please enter a positive number!");
+            $('#numFloors').val('');
             return true
 
         } else if ($('#numBase').val() < 0) {

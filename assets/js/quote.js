@@ -13,10 +13,10 @@ $(document).ready(function () {
     });
 
 
-    //Correction of item 1
-    $('#standard, #premium, #excelium').on('click', function () {
+    
+    $('#standard, #premium, #excelium').on('click', function () {  //Correction of item 10
         doCalc();
-        document.getElementById('elevPriceUnit').value = (prodRange.price).toFixed(2) + " $";        
+        document.getElementById('elevPriceUnit').value = (prodRange.price).toFixed(2) + " $"; //Correction of item 1       
     });
 
     $('#residential, #commercial, #corporate, #hybrid').on('click', function () {
@@ -58,7 +58,7 @@ $(document).ready(function () {
 
         } else if ($('#premium').is(':checked')) {
             prodRange.type = "premium";
-            prodRange.price = parseFloat(123456);
+            prodRange.price = parseFloat(12345);    // Correction of item 9
             prodRange.installationFeePercentage = 0.13;
             return prodRange;
 
@@ -88,7 +88,7 @@ $(document).ready(function () {
         $("#numElev_2, #numElev_3").val(parseFloat(finNumElev));
     };
 
-    function setPricesResults(finNumElev, roughTotal, installFee, total) {
+    function setPricesResults(roughTotal, installFee, total) {  //Correction additional
         $("#elevTotal").val(parseFloat(roughTotal).toFixed(2) + " $");
         $("#installationFee").val(parseFloat(installFee).toFixed(2) + " $");
         $("#total_").val(parseFloat(total).toFixed(2) + " $");
@@ -195,6 +195,8 @@ $(document).ready(function () {
             apiCall('commercial')
         } else if ($('#corporate').hasClass('active') && !negativeValues() && $('#numFloors').val() && $('#numBase').val() && $('#maxOcc').val()) { 
             apiCall('corporate') // Correction of item 7
+        } else if ($('#hybrid').hasClass('active') && !negativeValues() && $('#numFloors').val() && $('#numBase').val() && $('#maxOcc').val()) {  // Correction of item 8
+            apiCall('hybrid')
         } else {
             emptyElevatorsNumberAndPricesFields();
         };

@@ -13,9 +13,9 @@ $(document).ready(function () {
     });
 
 
-    $('#standart, #premium, #excelium').on('click', function () {
-        document.getElementById('elevPriceUnit').value = (7565).toFixed(2) + " $";
+    $('#standard, #premium, #excelium').on('click', function () {
         doCalc();
+        document.getElementById('elevPriceUnit').value = (prodRange.price).toFixed(2) + " $";        
     });
 
     $('#residential, #commercial, #corporate, #hybrid').on('click', function () {

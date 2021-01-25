@@ -76,6 +76,7 @@ $(document).ready(function () {
     };
 
     function GetInfos() {
+        getInfoNumApp(); // Correction of item 4
         getInfoNumFloors();
         getInfoNumBase();
         getInfoNumElev();
@@ -189,7 +190,7 @@ $(document).ready(function () {
     function doCalc() {
         if ($('#residential').hasClass('active') && !negativeValues() && $('#numApp').val() && $('#numFloors').val()) {
             apiCall('residential')
-        } else if ($('#commercial').hasClass('active') && !negativeValues() && $('#numElev').val()  && $('#numPark').val()) {
+        } else if ($('#commercial').hasClass('active') && !negativeValues() && $('#numElev').val()) { // Correction of item 5
             apiCall('commercial')
         } else if ($('#corporate').hasClass('active') && !negativeValues() && $('#numFloors').val() && $('#numBase').val() && $('#maxOcc').val()) {
             apiCall('commercial')
